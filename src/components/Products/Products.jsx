@@ -1,5 +1,5 @@
 import React from 'react';
-import Img1 from '../../assets/drum/drum6.png';
+import Img1 from '../../assets/Allproduct/Drum/d1.png';
 import Img2 from '../../assets/keyboard/keyboard1.png';
 import Img3 from '../../assets/bass/bass3.png';
 import Img4 from '../../assets/women/women4.jpg';
@@ -10,7 +10,7 @@ const ProductsData = [
 	{
 		id: 1,
 		img: Img1,
-		title: 'Women Ethnic',
+		title: 'Gigbag Gitar',
 		rating: 5.0,
 		color: 'white',
 		aosDelay: '0',
