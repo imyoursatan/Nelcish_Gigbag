@@ -1,122 +1,113 @@
-import footerLogo from '../../assets/logo.png';
-import Banner from '../../assets/website/footer-pattern.jpg';
+import footerLogo from '../../assets/logo1.png';
 import {
 	FaFacebook,
 	FaInstagram,
-	FaLinkedin,
-	FaLocationArrow,
-	FaMobileAlt,
+	FaWhatsapp,
+	FaMapMarkerAlt,
 } from 'react-icons/fa';
-
-const BannerImg = {
-	backgroundImage: `url(${Banner})`,
-	backgroundPosition: 'bottom',
-	backgroundRepeat: 'no-repeat',
-	backgroundSize: 'cover',
-	height: '100%',
-	width: '100%',
-};
-
-const FooterLinks = [
-	{
-		title: 'Home',
-		link: '/#',
-	},
-	{
-		title: 'About',
-		link: '/#about',
-	},
-	{
-		title: 'Contact',
-		link: '/#contact',
-	},
-	{
-		title: 'Blog',
-		link: '/#blog',
-	},
-];
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
 	return (
-		<div style={BannerImg} className="text-white">
-			<div className="container">
-				<div data-aos="zoom-in" className="grid md:grid-cols-3 pb-44 pt-5">
-					{/* company details */}
-					<div className="py-8 px-4">
-						<h1 className="sm:text-3xl text-xl font-bold sm:text-left text-justify mb-3 flex items-center gap-3">
-							<img src={footerLogo} alt="" className="max-w-[50px]" />
-							Shopsy
-						</h1>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum in
-							beatae ea recusandae blanditiis veritatis.
+		<div className="relative bg-black text-white py-10 px-4 sm:px-6 lg:px-8">
+			<div className="container mx-auto text-center">
+				{/* Tagline */}
+				<h1 className="text-3xl font-bold mb-2">NELCISH. GIGBAG. MUSIC</h1>
+				<p className="text-gray-400 mb-6 max-w-md mx-auto">
+					Di NELCISH, kami memahami bahwa setiap musisi membutuhkan gigbag yang
+					kuat dan bergaya. Dengan dedikasi penuh, kami merancang gigbag yang
+					melindungi instrumen Anda dengan kualitas terbaik, sambil tetap
+					menghadirkan desain yang memukau. Kepercayaan Anda adalah inspirasi
+					kami, dan kami siap mendukung perjalanan musik Anda dengan gigbag yang
+					handal dan elegan.
+				</p>
+
+				{/* Buttons */}
+				<div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+					<Link
+						to="/all-products"
+						className="bg-white text-black px-6 py-2 rounded-full inline-block"
+					>
+						Product
+					</Link>
+					<a
+						href="https://wa.me/6285759500550?text=Hi%2C%20saya%20tertarik%20untuk%20memesan%20produk%20dari%20toko%20Anda.%20Bisakah%20Anda%20membantu%20saya%3F"
+						className="bg-white text-black px-6 py-2 rounded-full inline-block"
+						aria-label="Contact"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Contact
+					</a>
+				</div>
+
+				{/* Address */}
+				<div className="flex flex-col sm:flex-row justify-center items-center gap-2 text-gray-400 mb-8">
+					<FaMapMarkerAlt className="text-lg" />
+					<p className="text-center sm:text-left">
+						Gapura Bumi Bukamukti Jalan. Cicangkudu Kp. Sekeawi RT 03 / RW 14
+						Kel. Sukamukti Kec. Katapang Kab. Bandung 40921 Jawa Barat.
+					</p>
+				</div>
+
+				{/* Logo and Social Icons */}
+				<div className="border-t border-gray-700 pt-4 mt-8">
+					<div className="flex flex-col sm:flex-row justify-between items-center max-w-4xl mx-auto">
+						{/* Footer Logo */}
+						<div className="mb-4 sm:mb-0">
+							<img
+								src={footerLogo}
+								alt="Nelcish Logo"
+								className="max-w-[150px]"
+							/>
+						</div>
+
+						{/* Copyright */}
+						<p className="text-gray-400 mb-4 sm:mb-0">
+							&copy; 2024 Nelcish. All rights reserved.
 						</p>
-					</div>
 
-					{/* Footer Links */}
-					<div className="grid grid-cols-2 sm:grid-cols-3 col-span-2 md:pl-10">
-						<div>
-							<div className="py-8 px-4">
-								<h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-3">
-									Important Links
-								</h1>
-								<ul className="flex flex-col gap-3">
-									{FooterLinks.map((link) => (
-										<li
-											className="cursor-pointer hover:text-primary hover:translate-x-1 duration-300 text-gray-200"
-											key={link.title}
-										>
-											<span>{link.title}</span>
-										</li>
-									))}
-								</ul>
-							</div>
-						</div>
-						<div>
-							<div className="py-8 px-4">
-								<h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-3">
-									Links
-								</h1>
-								<ul className="flex flex-col gap-3">
-									{FooterLinks.map((link) => (
-										<li
-											className="cursor-pointer hover:text-primary hover:translate-x-1 duration-300 text-gray-200"
-											key={link.title}
-										>
-											<span>{link.title}</span>
-										</li>
-									))}
-								</ul>
-							</div>
-						</div>
-
-						{/* social links */}
-
-						<div>
-							<div className="flex items-center gap-3 mt-6">
-								<a href="#">
-									<FaInstagram className="text-3xl" />
-								</a>
-								<a href="#">
-									<FaFacebook className="text-3xl" />
-								</a>
-								<a href="#">
-									<FaLinkedin className="text-3xl" />
-								</a>
-							</div>
-							<div className="mt-6">
-								<div className="flex items-center gap-3">
-									<FaLocationArrow />
-									<p>Noida, Uttar Pradesh</p>
-								</div>
-								<div className="flex items-center gap-3 mt-3">
-									<FaMobileAlt />
-									<p>+91 123456789</p>
-								</div>
-							</div>
+						{/* Social Icons */}
+						<div className="flex gap-4 text-xl">
+							<a
+								href="https://www.facebook.com/profile.php?id=100063819120004"
+								aria-label="Facebook"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<FaFacebook />
+							</a>
+							<a
+								href="https://www.instagram.com/nelcish.bag/"
+								aria-label="Instagram"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<FaInstagram />
+							</a>
+							<a
+								href="https://wa.me/6285759500550?text=Hi%2C%20saya%20tertarik%20untuk%20memesan%20produk%20dari%20toko%20Anda.%20Bisakah%20Anda%20membantu%20saya%3F"
+								aria-label="Whatsapp"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<FaWhatsapp />
+							</a>
 						</div>
 					</div>
 				</div>
+			</div>
+
+			{/* Designer Credit */}
+			<div className="absolute bottom-0 inset-x-0 text-gray-400 text-sm text-center sm:text-right py-4">
+				<a
+					href="https://666zzz.netlify.app/"
+					className="hover:text-primary"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Design and Build by Teguh
+				</a>
 			</div>
 		</div>
 	);

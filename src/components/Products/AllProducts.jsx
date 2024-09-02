@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Img1 from '../../assets/Allproduct/Gitar/g1.png';
 import Img2 from '../../assets/Allproduct/Gitar/g2.png';
@@ -18,6 +19,8 @@ import Img15 from '../../assets/Allproduct/Dj/dj3.png';
 import { FaStar } from 'react-icons/fa6';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 import Hero from '../Hero/Hero';
+import Footer from '../Footer/Footer';
+import PropTypes from 'prop-types';
 
 const ProductsData = [
 	{
@@ -55,8 +58,12 @@ const ProductsData = [
 const AllProducts = ({ handleOrderPopup }) => {
 	const [currentIndex, setCurrentIndex] = useState(ProductsData.map(() => 0));
 	const [animatingIndex, setAnimatingIndex] = useState(null);
-	const [isButtonPressed, setIsButtonPressed] = useState(false);
+	const [setIsButtonPressed] = useState(false);
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	const handlePrev = (index) => {
 		if (animatingIndex !== null) return;
@@ -95,20 +102,20 @@ const AllProducts = ({ handleOrderPopup }) => {
 	};
 
 	const handleImageClick = (id) => {
-		navigate(`/product/${id}`); // Menggunakan id produk untuk navigasi
+		navigate(`/product/${id}`, { state: { scrollToTop: true } });
 	};
 
 	return (
 		<div className="mt-0">
 			<Hero handleOrderPopup={handleOrderPopup} />
 			<div className="text-center mb-10 max-w-[600px] mx-auto mt-20">
-				<h1 className="text-3xl font-bold">All Products</h1>
+				<h1 className="text-3xl font-bold">All PRODUCTS OF NELCISH</h1>
 			</div>
 			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center gap-5 px-5">
 				{ProductsData.map((data, index) => (
 					<div
 						key={data.id}
-						className="space-y-5 relative flex flex-col items-center dark:bg-gray-800 bg-white p-4 rounded-lg shadow-lg dark:hover:bg-primary w-full max-w-xs"
+						className="space-y-5 relative flex flex-col items-center dark:bg-gray-800 bg-white p-4 rounded-lg shadow-lg dark:hover:bg-primary w-full max-w-xs h-[420px]" // Tetapkan tinggi tetap pada container
 					>
 						<div className="relative overflow-hidden h-72 w-full transition-transform transform">
 							<img
@@ -158,8 +165,15 @@ const AllProducts = ({ handleOrderPopup }) => {
 					</div>
 				))}
 			</div>
+			<div className="mt-20">
+				<Footer />
+			</div>
 		</div>
 	);
+};
+
+AllProducts.propTypes = {
+	handleOrderPopup: PropTypes.func.isRequired,
 };
 
 export default AllProducts;

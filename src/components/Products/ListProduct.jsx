@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ShopeeIcon from '../../assets/shope.png';
 import TokopediaIcon from '../../assets/tokped1.png';
@@ -23,7 +24,7 @@ import Img18 from '../../assets/Allproduct/Dj/dj2.png';
 import Img19 from '../../assets/Allproduct/Dj/dj3.png';
 import Img20 from '../../assets/Allproduct/Dj/dj4.png';
 import Testimonials from '../Testimonials/Testimonials';
-import Footer from '../../components/Footer/Footer';
+import Footer from '../Footer/Footer';
 
 const products = [
 	{
@@ -129,24 +130,28 @@ const ListProduct = () => {
 	const product = products.find((p) => p.id === parseInt(id)); // Mencari produk berdasarkan id
 	const [selectedImage, setSelectedImage] = useState(product.images[0]); // Menyimpan gambar yang dipilih
 
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
 	if (!product) {
 		return <p>Product not found</p>; // Menampilkan pesan jika produk tidak ditemukan
 	}
 
 	return (
-		<div className="container mx-auto mt-10 p-5 dark:bg-gray-900 dark:text-gray-100">
-			<div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-10 p-5">
+		<div className="w-full mx-auto mt-20 dark:bg-gray-700 dark:text-gray-100">
+			<div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-10 p-10">
 				{/* Bagian Tengah: Gambar Utama */}
 				<div className="flex justify-center flex-grow">
 					<img
 						src={selectedImage}
 						alt={product.title}
-						className="w-auto max-w-lg h-auto object-cover rounded-lg"
+						className="w-auto max-w-lg h-auto object-contain rounded-lg"
 					/>
 				</div>
 
 				{/* Bagian Kanan: Detail Produk */}
-				<div className="flex flex-col justify-center lg:ml-5 mt-5 lg:mt-0">
+				<div className="flex flex-col justify-center lg:ml-5 mt-5 lg:mt-0 mr-2">
 					{/* Bagian Bawah: Thumbnail Gambar */}
 					<div className="flex justify-center space-x-4 mt-4 mb-5 order-first lg:order-none">
 						{product.images.map((image, index) => (
@@ -163,26 +168,23 @@ const ListProduct = () => {
 							</div>
 						))}
 					</div>
-
 					<h1 className="text-4xl font-bold mb-4">{product.title}</h1>
 					<p className="text-2xl text-gray-700 dark:text-gray-300 mb-4">
 						{product.price}
 					</p>
 					<p className="mb-6">{product.description}</p>
-
 					<h3 className="text-2xl font-semibold">Detail</h3>
 					<ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mt-2 mb-6">
 						{product.detail.map((item, index) => (
 							<li key={index}>{item}</li>
 						))}
 					</ul>
-
 					<div className="flex items-center space-x-4 mb-10">
 						<a
 							href={product.shopeeLink}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="flex items-center justify-center w-36 h-12 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-600 text-black dark:text-white font-bold rounded-lg border border-gray-300 dark:border-gray-600"
+							className="flex items-center justify-center w-36 h-12 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-600 text-black dark:text-white font-bold rounded-lg border border-gray-300 dark:border-gray-600 mt-3"
 						>
 							<span>Shop Via</span>
 							<img src={ShopeeIcon} alt="Shopee" className="w-12 h-8 " />
@@ -191,7 +193,7 @@ const ListProduct = () => {
 							href={product.tokopediaLink}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="flex items-center justify-center w-36 h-12 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-600 text-black dark:text-white font-bold rounded-lg border border-gray-300 dark:border-gray-600"
+							className="flex items-center justify-center w-36 h-12 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-600 text-black dark:text-white font-bold rounded-lg border border-gray-300 dark:border-gray-600 mt-3"
 						>
 							<span>Shop Via</span>
 							<img src={TokopediaIcon} alt="Tokopedia" className="w-10 h-10 " />
@@ -200,7 +202,7 @@ const ListProduct = () => {
 				</div>
 			</div>
 			<Testimonials />
-			<div className="m-auto">
+			<div className="w-full m-0 p-0">
 				<Footer />
 			</div>
 		</div>

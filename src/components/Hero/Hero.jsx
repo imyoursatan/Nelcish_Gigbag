@@ -1,6 +1,5 @@
-import React from 'react';
-import Image3 from '../../assets/hero/sale.png';
 import Slider from 'react-slick';
+import PropTypes from 'prop-types';
 import Hero1 from '../../assets/hero/hero1.png';
 import Hero2 from '../../assets/hero/hero2.png';
 
@@ -8,21 +7,21 @@ const ImageList = [
 	{
 		id: 1,
 		img: Hero1,
-		title: 'Gigbag Guitar  by Nelcish',
+		title: 'Gigbag Guitar by Nelcish',
 		description:
-			'lorem His Life will forever be Changed dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+			'Gigbag gitar by Nelcish ini tidak hanya memberikan perlindungan maksimal untuk gitar kesayangan Anda, tetapi juga menambah sentuhan stylish dan modern. Dibuat dengan material berkualitas tinggi dan desain ergonomis, gigbag ini memastikan gitar Anda tetap aman dan nyaman dibawa ke mana saja, baik saat latihan, pertunjukan, maupun perjalanan jauh.',
 	},
 	{
 		id: 2,
 		img: Hero2,
 		title: 'Gigbag Keyboard by Nelcish',
 		description:
-			"Who's there lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			'Gigbag keyboard by Nelcish ini dirancang khusus untuk melindungi keyboard Anda dengan sempurna, menggabungkan desain elegan dengan fungsionalitas tinggi. Dilengkapi dengan bantalan tebal dan kompartemen tambahan, gigbag ini memberikan ruang yang cukup untuk aksesori penting. Cocok untuk musisi yang sering berpindah-pindah, gigbag ini memastikan keyboard Anda tetap aman dan mudah dibawa, tanpa mengorbankan gaya.',
 	},
 ];
 
 const Hero = ({ handleOrderPopup }) => {
-	var settings = {
+	const settings = {
 		dots: false,
 		arrows: false,
 		infinite: true,
@@ -36,14 +35,14 @@ const Hero = ({ handleOrderPopup }) => {
 	};
 
 	return (
-		<div className="relative overflow-hidden min-h-[550px] sm:min-h-[650px] bg-gray-100 flex justify-center items-center dark:bg-gray-950 dark:text-white duration-200 ">
+		<div className="relative overflow-hidden min-h-[550px] sm:min-h-[650px] bg-gray-100 flex justify-center items-center dark:bg-gray-800 dark:text-white duration-200">
 			{/* background pattern */}
-			<div className="h-[700px] w-[700px] bg-primary/40 absolute -top-1/2 right-0 rounded-3xl rotate-45 -z[8]"></div>
+			<div className="h-[700px] w-[700px] bg-primary/40 absolute -top-1/2 right-0 rounded-3xl rotate-45 z-[-8]"></div>
 			{/* hero section */}
 			<div className="container pb-8 sm:pb-0">
 				<Slider {...settings}>
 					{ImageList.map((data) => (
-						<div>
+						<div key={data.id}>
 							<div className="grid grid-cols-1 sm:grid-cols-2">
 								{/* text content section */}
 								<div className="flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10">
@@ -97,6 +96,10 @@ const Hero = ({ handleOrderPopup }) => {
 			</div>
 		</div>
 	);
+};
+
+Hero.propTypes = {
+	handleOrderPopup: PropTypes.func.isRequired,
 };
 
 export default Hero;

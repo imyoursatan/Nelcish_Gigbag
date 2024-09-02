@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import Logo1 from '../../assets/logo1.png';
 import { FaCartShopping } from 'react-icons/fa6';
 import DarkMode from './DarkMode';
@@ -12,18 +12,18 @@ const Menu = [
 	{
 		id: 2,
 		name: 'Product',
-		link: '/#services',
+		link: '/all-products',
 	},
 	{
 		id: 3,
-		name: 'About',
-		link: '/#',
+		name: 'Custom Gigbag',
+		link: '/#banner',
 	},
 ];
 
 const Navbar = ({ handleOrderPopup }) => {
 	return (
-		<div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40 ">
+		<div className="shadow-md bg-white dark:bg-gray-700 dark:text-white duration-200 relative z-40 ">
 			{/* upper Navbar */}
 			<div className="bg-primary/40 py-2">
 				<div className="container flex justify-between items-center">
@@ -68,6 +68,10 @@ const Navbar = ({ handleOrderPopup }) => {
 			</div>
 		</div>
 	);
+};
+
+Navbar.propTypes = {
+	handleOrderPopup: PropTypes.func.isRequired,
 };
 
 export default Navbar;

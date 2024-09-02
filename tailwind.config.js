@@ -4,8 +4,11 @@ export default {
 	darkMode: 'class',
 	theme: {
 		extend: {
+			fontFamily: {
+				sans: ['Rubik', 'sans-serif'],
+			},
 			colors: {
-				primary: 'gray',
+				primary: 'grey',
 				secondary: 'red',
 			},
 			container: {

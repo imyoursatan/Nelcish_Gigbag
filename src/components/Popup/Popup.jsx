@@ -1,8 +1,8 @@
-import React from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
 import ShopeeLogo from '../../assets/shope.png';
 import TokopediaLogo from '../../assets/tokped1.png';
 import WhatsAppLogo from '../../assets/wa.png';
+import PropTypes from 'prop-types';
 
 const Popup = ({ orderPopup, setOrderPopup }) => {
 	return (
@@ -71,6 +71,11 @@ const Popup = ({ orderPopup, setOrderPopup }) => {
 			)}
 		</>
 	);
+};
+
+Popup.propTypes = {
+	orderPopup: PropTypes.bool.isRequired, // Expecting a boolean value
+	setOrderPopup: PropTypes.func.isRequired, // Expecting a function
 };
 
 export default Popup;

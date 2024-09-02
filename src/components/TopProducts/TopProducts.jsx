@@ -1,8 +1,8 @@
-import React from 'react';
 import Img1 from '../../assets/Gitar/gitar.png';
 import Img2 from '../../assets/keyboard/keyboard.png';
 import Img3 from '../../assets/bass/bass.png';
 import { FaStar } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
 const ProductsData = [
 	{
@@ -10,32 +10,32 @@ const ProductsData = [
 		img: Img1,
 		title: 'Gigbag Guitar',
 		description:
-			'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+			'Gigbag gitar elektrik keren dan stylis ini adalah pilihan tepat, selain bentuk dan model yang elegan gigbag ini sangat aman dan nyaman untuk alat musiknya karena material yang kaku dan empuk pada bagian dalam.',
 	},
 	{
 		id: 2,
 		img: Img2,
 		title: 'Gigbag Keyboard',
 		description:
-			'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+			'Gigbag keyboard yamaha CK61 keren dan stylis ini adalah pilihan tepat, selain bentuk dan model yang elegan gigbag ini sangat aman dan nyaman untuk alat musiknya karena material yang kaku dan empuk pada bagian dalam.',
 	},
 	{
 		id: 3,
 		img: Img3,
 		title: 'Gigbag Bass',
 		description:
-			'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+			'Gigbag bass keren dan stylis ini adalah pilihan tepat, selain bentuk dan model yang elegan gigbag ini sangat aman untuk alat musik karena material yang kaku dan empuk di bagian dalam..',
 	},
 ];
 
-const TopProducts = ({ handleOrderPopup }) => {
+const TopProducts = () => {
 	return (
 		<div>
 			<div className="container">
 				{/* Header section */}
 				<div className="text-center mb-20 mt-10">
 					<h1 data-aos="fade-up" className="text-4xl font-bold ">
-						Nelcish Bag Top Products
+						NELCISH BAG TOP PRODUCTS
 					</h1>
 				</div>
 				{/* Body section */}
@@ -68,12 +68,6 @@ const TopProducts = ({ handleOrderPopup }) => {
 								<p className="text-gray-500 group-hover:text-white duration-300 text-sm line-clamp-2">
 									{data.description}
 								</p>
-								<button
-									className="bg-primary hover:scale-105 duration-300 text-white py-1 px-4 rounded-full mt-4 group-hover:bg-white group-hover:text-primary"
-									onClick={handleOrderPopup}
-								>
-									See Products
-								</button>
 							</div>
 						</div>
 					))}
@@ -81,6 +75,10 @@ const TopProducts = ({ handleOrderPopup }) => {
 			</div>
 		</div>
 	);
+};
+
+TopProducts.propTypes = {
+	handleOrderPopup: PropTypes.func.isRequired,
 };
 
 export default TopProducts;
