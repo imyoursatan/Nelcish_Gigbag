@@ -6,7 +6,6 @@ import CustomImg from '../../assets/wa.png';
 
 const Banner = () => {
 	return (
-		// Menambahkan id="banner" untuk anchor link
 		<div
 			id="banner"
 			className="min-h-[550px] flex justify-center items-center py-12 sm:py-0"

@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import Products from './components/Products/Products';
 import AllProducts from './components/Products/AllProducts';
-import ListProduct from './components/Products/ListProduct'; // Import komponen ListProduct
+import ListProduct from './components/Products/ListProduct';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import TopProducts from './components/TopProducts/TopProducts';

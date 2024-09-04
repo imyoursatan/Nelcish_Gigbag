@@ -126,16 +126,16 @@ const products = [
 ];
 
 const ListProduct = () => {
-	const { id } = useParams(); // Mengambil id dari URL
-	const product = products.find((p) => p.id === parseInt(id)); // Mencari produk berdasarkan id
-	const [selectedImage, setSelectedImage] = useState(product.images[0]); // Menyimpan gambar yang dipilih
+	const { id } = useParams();
+	const product = products.find((p) => p.id === parseInt(id));
+	const [selectedImage, setSelectedImage] = useState(product.images[0]);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
 
 	if (!product) {
-		return <p>Product not found</p>; // Menampilkan pesan jika produk tidak ditemukan
+		return <p>Product not found</p>;
 	}
 
 	return (
